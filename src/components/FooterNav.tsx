@@ -101,15 +101,13 @@ const FooterNav = () => {
       <Link
         key={index}
         href={item.link}
-        className={`flex flex-col items-center justify-between text-neutral-500 dark:text-neutral-300/90 ${
-          isActive ? "text-neutral-900 dark:text-neutral-100" : ""
-        }`}
+        className={`flex flex-col items-center justify-between text-neutral-500 dark:text-neutral-300/90 ${isActive ? "text-neutral-900 dark:text-neutral-100" : ""
+          }`}
       >
         <item.icon className={`w-6 h-6 ${isActive ? "text-red-600" : ""}`} />
         <span
-          className={`text-[11px] leading-none mt-1 ${
-            isActive ? "text-red-600" : ""
-          }`}
+          className={`text-[11px] leading-none mt-1 ${isActive ? "text-red-600" : ""
+            }`}
         >
           {item.name}
         </span>
@@ -117,9 +115,8 @@ const FooterNav = () => {
     ) : (
       <div
         key={index}
-        className={`flex flex-col items-center justify-between text-neutral-500 dark:text-neutral-300/90 ${
-          isActive ? "text-neutral-900 dark:text-neutral-100" : ""
-        }`}
+        className={`flex flex-col items-center justify-between text-neutral-500 dark:text-neutral-300/90 ${isActive ? "text-neutral-900 dark:text-neutral-100" : ""
+          }`}
       >
         <item.icon iconClassName="w-6 h-6" className={``} />
         <span className="text-[11px] leading-none mt-1">{item.name}</span>
@@ -135,6 +132,7 @@ const FooterNav = () => {
     >
       <div className="w-full max-w-lg flex justify-around mx-auto text-sm text-center ">
         {/* MENU */}
+        {/* Nav */}
         {NAV.map(renderItem)}
       </div>
     </div>
