@@ -6,6 +6,7 @@ import { CustomLink } from "@/data/types";
 import React from "react";
 import FooterNav from "./FooterNav";
 import brandLogo from "@/images/logos/logo.svg";
+import { useFooterData } from "@/hooks/useHotels";
 export interface WidgetFooterMenu {
   id: string;
   title: string;
@@ -47,17 +48,19 @@ const widgetMenus: WidgetFooterMenu[] = [
 
     ],
   },
-  {
-    id: "4",
-    title: "List Your Property",
-    menus: [
-      { href: '#', label: "List Your Property" },
-      { href: "#", label: "Travel Agents" },
-    ],
-  },
+  // {
+  //   id: "4",
+  //   title: "List Your Property",
+  //   menus: [
+  //     { href: '#', label: "List Your Property" },
+  //     { href: "#", label: "Travel Agents" },
+  //   ],
+  // },
 ];
 
 const Footer: React.FC = () => {
+  const { data, isError, isLoading } = useFooterData();
+  console.log("Footer data ", data);
   const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
     return (
       <div key={index} className="text-sm">
@@ -86,7 +89,7 @@ const Footer: React.FC = () => {
       <FooterNav />
 
       <div className="nc-Footer relative py-20 lg:py-12 border-t border-neutral-200 dark:border-neutral-700">
-        <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10">
+        <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-4 lg:gap-x-10">
           <div className="flex flex-col col-span-2 md:col-span-4 lg:col-span-1 space-y-5">
             <div className="flex justify-center lg:justify-start">
               <img
@@ -102,6 +105,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
           {widgetMenus.map(renderWidgetMenuItem)}
+        </div>
+        <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 my-3">
+          {/* menus from the api or json */}
+          { }
         </div>
       </div>
     </>
